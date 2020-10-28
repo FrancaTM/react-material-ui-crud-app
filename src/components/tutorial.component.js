@@ -118,7 +118,87 @@ class Tutorial extends Component {
   }
 
   render() {
-    return <div></div>;
+    const { currentTutorial } = this.state;
+    const { classes } = this.props;
+
+    return (
+      <div>
+        {currentTutorial ? (
+          <div className={classes.form}>
+            <h2>Tutorial</h2>
+            <form>
+              <div>
+                <TextField
+                  className={classes.textField}
+                  label="Title"
+                  name="title"
+                  value={currentTutorial.title}
+                  onChange={this.onChangeTitle}
+                  required
+                />
+              </div>
+
+              <div>
+                <TextField
+                  className={classes.textField}
+                  label="Description"
+                  name="description"
+                  value={currentTutorial.title}
+                  onChange={this.onChangeTitle}
+                  required
+                />
+              </div>
+
+              <div className="form-group">
+                <label>
+                  <strong>Status: </strong>
+                </label>
+                {currentTutorial.published ? "Published" : "Pending"}
+              </div>
+            </form>
+
+            <div className={classes.buttonWrapper}>
+              {currentTutorial.published ? (
+                <Button
+                  className={`${classes.publish} ${classes.button}`}
+                  onClick={() => this.updatePublished(false)}
+                >
+                  Unpublish
+                </Button>
+              ) : (
+                <Button
+                  className={`${classes.publish} ${classes.button}`}
+                  onClick={() => this.updatePublished(true)}
+                >
+                  Publish
+                </Button>
+              )}
+
+              <Button
+                className={`${classes.delete} ${classes.button}`}
+                onClick={() => this.deleteTutorial}
+              >
+                Delete
+              </Button>
+
+              <Button
+                type="submit"
+                className={`${classes.update} ${classes.button}`}
+                onClick={() => this.updateTutorial}
+              >
+                Update
+              </Button>
+            </div>
+            <p>{this.state.message}</p>
+          </div>
+        ) : (
+          <div>
+            <br />
+            <p>Please click on a tutorial...</p>
+          </div>
+        )}
+      </div>
+    );
   }
 }
 
