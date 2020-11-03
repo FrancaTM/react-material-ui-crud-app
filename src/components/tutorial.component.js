@@ -143,8 +143,8 @@ class Tutorial extends Component {
                   className={classes.textField}
                   label="Description"
                   name="description"
-                  value={currentTutorial.title}
-                  onChange={this.onChangeTitle}
+                  value={currentTutorial.description}
+                  onChange={this.onChangeDescription}
                   required
                 />
               </div>
