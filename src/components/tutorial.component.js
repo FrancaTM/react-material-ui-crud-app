@@ -176,7 +176,7 @@ class Tutorial extends Component {
 
               <Button
                 className={`${classes.delete} ${classes.button}`}
-                onClick={() => this.deleteTutorial}
+                onClick={this.deleteTutorial}
               >
                 Delete
               </Button>
@@ -184,7 +184,7 @@ class Tutorial extends Component {
               <Button
                 type="submit"
                 className={`${classes.update} ${classes.button}`}
-                onClick={() => this.updateTutorial}
+                onClick={this.updateTutorial}
               >
                 Update
               </Button>
